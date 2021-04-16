@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/anaSayfaFragment">
+
+    <fragment
+        android:id="@+id/anaSayfaFragment"
+        android:name="com.irempakyurek.navigationcomponentexample.AnaSayfaFragment"
+        android:label="fragment_ana_sayfa"
+        tools:layout="@layout/fragment_ana_sayfa" >
+        <action
+            android:id="@+id/additionFragmentGecis"
+            app:destination="@id/additionFragment" />
+        <action
+            android:id="@+id/multiplicationFragmentGecis"
+            app:destination="@id/multiplicationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/additionFragment"
+        android:name="com.irempakyurek.navigationcomponentexample.AdditionFragment"
+        android:label="fragment_addition"
+        tools:layout="@layout/fragment_addition" >
+        <action
+            android:id="@+id/additionResultFragmentGecis"
+            app:destination="@id/additionResultFragment"
+            app:popUpTo="@id/additionFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/multiplicationFragment"
+        android:name="com.irempakyurek.navigationcomponentexample.MultiplicationFragment"
+        android:label="fragment_multiplication"
+        tools:layout="@layout/fragment_multiplication" >
+        <action
+            android:id="@+id/multiplicationResultFragmentGecis"
+            app:destination="@id/multiplicationResultFragment"
+            app:popUpTo="@id/multiplicationFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/additionResultFragment"
+        android:name="com.irempakyurek.navigationcomponentexample.AdditionResultFragment"
+        android:label="fragment_addition_result"
+        tools:layout="@layout/fragment_addition_result" >
+        <argument
+            android:name="firstValue"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="secondValue"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/multiplicationResultFragment"
+        android:name="com.irempakyurek.navigationcomponentexample.MultiplicationResultFragment"
+        android:label="fragment_multiplication_result"
+        tools:layout="@layout/fragment_multiplication_result" >
+        <argument
+            android:name="firstValue"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="secondValue"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+</navigation>
